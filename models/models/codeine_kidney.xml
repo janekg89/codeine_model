@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1" level="3" version="1" fbc:required="false" comp:required="true">
+  <model metaid="meta_codeine_kidney" id="codeine_kidney" name="codeine_kidney" substanceUnits="mmole" timeUnits="min" volumeUnits="litre" areaUnits="m2" lengthUnits="m" extentUnits="mmole" fbc:strict="false">
+    <listOfUnitDefinitions>
+      <unitDefinition id="mmole">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="min">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="0" multiplier="60"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="m">
+        <listOfUnits>
+          <unit kind="metre" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="m2">
+        <listOfUnits>
+          <unit kind="metre" exponent="2" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="mM">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-3" multiplier="1"/>
+          <unit kind="litre" exponent="-1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="mmole_per_min">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-3" multiplier="1"/>
+          <unit kind="second" exponent="-1" scale="0" multiplier="60"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment sboTerm="SBO:0000290" id="Vki" name="kidney" spatialDimensions="3" size="1" units="litre" constant="true"/>
+      <compartment sboTerm="SBO:0000290" id="Vurine" name="urine" spatialDimensions="3" size="1" units="litre" constant="true"/>
+      <compartment sboTerm="SBO:0000290" id="Vext" name="extern" spatialDimensions="3" size="1" units="litre" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species sboTerm="SBO:0000245" id="cod_ext" name="codeine (extern)" compartment="Vext" initialConcentration="0" substanceUnits="mmole" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species sboTerm="SBO:0000245" id="ncod_ext" name="norcodeine (extern)" compartment="Vext" initialConcentration="0" substanceUnits="mmole" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species sboTerm="SBO:0000245" id="c6g_ext" name="codeine-6-glucuronide (extern)" compartment="Vext" initialConcentration="0" substanceUnits="mmole" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species sboTerm="SBO:0000245" id="mor_ext" name="morphine (extern)" compartment="Vext" initialConcentration="0" substanceUnits="mmole" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species sboTerm="SBO:0000245" id="nmor_ext" name="normorphine (extern)" compartment="Vext" initialConcentration="0" substanceUnits="mmole" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species sboTerm="SBO:0000245" id="m3g_ext" name="morphine-3-glucuronide (extern)" compartment="Vext" initialConcentration="0" substanceUnits="mmole" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species sboTerm="SBO:0000245" id="m6g_ext" name="morphine-6-glucuronide (extern)" compartment="Vext" initialConcentration="0" substanceUnits="mmole" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species sboTerm="SBO:0000245" id="cod" name="codeine" compartment="Vki" initialConcentration="0" substanceUnits="mmole" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species sboTerm="SBO:0000245" id="mor" name="morphine" compartment="Vki" initialConcentration="0" substanceUnits="mmole" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species sboTerm="SBO:0000245" id="ncod" name="norcodeine" compartment="Vki" initialConcentration="0" substanceUnits="mmole" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species sboTerm="SBO:0000245" id="c6g" name="codeine-6-glucuronide" compartment="Vki" initialConcentration="0" substanceUnits="mmole" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species sboTerm="SBO:0000245" id="nmor" name="normorphine" compartment="Vki" initialConcentration="0" substanceUnits="mmole" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species sboTerm="SBO:0000245" id="m3g" name="morphine-3-glucuronide" compartment="Vki" initialConcentration="0" substanceUnits="mmole" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species sboTerm="SBO:0000245" id="m6g" name="morphine-6-glucuronide" compartment="Vki" initialConcentration="0" substanceUnits="mmole" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species sboTerm="SBO:0000245" id="cod_urine" name="codeine (urine)" compartment="Vurine" initialConcentration="0" substanceUnits="mmole" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species sboTerm="SBO:0000245" id="mor_urine" name="morphine (urine)" compartment="Vurine" initialConcentration="0" substanceUnits="mmole" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species sboTerm="SBO:0000245" id="ncod_urine" name="norcodeine (urine)" compartment="Vurine" initialConcentration="0" substanceUnits="mmole" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species sboTerm="SBO:0000245" id="c6g_urine" name="codeine-6-glucuronide (urine)" compartment="Vurine" initialConcentration="0" substanceUnits="mmole" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species sboTerm="SBO:0000245" id="nmor_urine" name="normorphine (urine)" compartment="Vurine" initialConcentration="0" substanceUnits="mmole" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species sboTerm="SBO:0000245" id="m3g_urine" name="morphine-3-glucuronide (urine)" compartment="Vurine" initialConcentration="0" substanceUnits="mmole" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species sboTerm="SBO:0000245" id="m6g_urine" name="morphine-6-glucuronide (urine)" compartment="Vurine" initialConcentration="0" substanceUnits="mmole" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="CODIM_Vmax" value="0.1" units="mmole_per_min" constant="true"/>
+      <parameter id="CODIM_Km" value="1" units="mM" constant="true"/>
+      <parameter id="MORIM_Vmax" value="0.1" units="mmole_per_min" constant="true"/>
+      <parameter id="MORIM_Km" value="1" units="mM" constant="true"/>
+      <parameter id="NCODIM_Vmax" value="0.1" units="mmole_per_min" constant="true"/>
+      <parameter id="NCODIM_Km" value="1" units="mM" constant="true"/>
+      <parameter id="C6GIM_Vmax" value="0.1" units="mmole_per_min" constant="true"/>
+      <parameter id="C6GIM_Km" value="1" units="mM" constant="true"/>
+      <parameter id="NMORIM_Vmax" value="0.1" units="mmole_per_min" constant="true"/>
+      <parameter id="NMORIM_Km" value="1" units="mM" constant="true"/>
+      <parameter id="M3GIM_Vmax" value="0.1" units="mmole_per_min" constant="true"/>
+      <parameter id="M3GIM_Km" value="1" units="mM" constant="true"/>
+      <parameter id="M6GIM_Vmax" value="0.1" units="mmole_per_min" constant="true"/>
+      <parameter id="M6GIM_Km" value="1" units="mM" constant="true"/>
+      <parameter id="CODEX_Vmax" value="0.1" units="mmole_per_min" constant="true"/>
+      <parameter id="CODEX_Km" value="1" units="mM" constant="true"/>
+      <parameter id="MOREX_Vmax" value="0.1" units="mmole_per_min" constant="true"/>
+      <parameter id="MOREX_Km" value="1" units="mM" constant="true"/>
+      <parameter id="NCODEX_Vmax" value="0.1" units="mmole_per_min" constant="true"/>
+      <parameter id="NCODEX_Km" value="1" units="mM" constant="true"/>
+      <parameter id="C6GEX_Vmax" value="0.1" units="mmole_per_min" constant="true"/>
+      <parameter id="C6GEX_Km" value="1" units="mM" constant="true"/>
+      <parameter id="NMOREX_Vmax" value="0.1" units="mmole_per_min" constant="true"/>
+      <parameter id="NMOREX_Km" value="1" units="mM" constant="true"/>
+      <parameter id="M3GEX_Vmax" value="0.1" units="mmole_per_min" constant="true"/>
+      <parameter id="M3GEX_Km" value="1" units="mM" constant="true"/>
+      <parameter id="M6GEX_Vmax" value="0.1" units="mmole_per_min" constant="true"/>
+      <parameter id="M6GEX_Km" value="1" units="mM" constant="true"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction sboTerm="SBO:0000655" id="CODIM" reversible="true" fast="false">
+        <listOfReactants>
+          <speciesReference species="cod_ext" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="cod" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> CODIM_Vmax </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <divide/>
+                  <ci> cod_ext </ci>
+                  <ci> Vext </ci>
+                </apply>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <divide/>
+                    <ci> cod_ext </ci>
+                    <ci> Vext </ci>
+                  </apply>
+                  <ci> CODIM_Km </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000655" id="MORIM" reversible="true" fast="false">
+        <listOfReactants>
+          <speciesReference species="mor_ext" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="mor" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> MORIM_Vmax </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <divide/>
+                  <ci> mor_ext </ci>
+                  <ci> Vext </ci>
+                </apply>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <divide/>
+                    <ci> mor_ext </ci>
+                    <ci> Vext </ci>
+                  </apply>
+                  <ci> MORIM_Km </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000655" id="NCODIM" reversible="true" fast="false">
+        <listOfReactants>
+          <speciesReference species="ncod_ext" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="ncod" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> NCODIM_Vmax </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <divide/>
+                  <ci> ncod_ext </ci>
+                  <ci> Vext </ci>
+                </apply>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <divide/>
+                    <ci> ncod_ext </ci>
+                    <ci> Vext </ci>
+                  </apply>
+                  <ci> NCODIM_Km </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000655" id="C6GIM" reversible="true" fast="false">
+        <listOfReactants>
+          <speciesReference species="c6g_ext" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="c6g" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> C6GIM_Vmax </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <divide/>
+                  <ci> c6g_ext </ci>
+                  <ci> Vext </ci>
+                </apply>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <divide/>
+                    <ci> c6g_ext </ci>
+                    <ci> Vext </ci>
+                  </apply>
+                  <ci> C6GIM_Km </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000655" id="NMORIM" reversible="true" fast="false">
+        <listOfReactants>
+          <speciesReference species="nmor_ext" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="nmor" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> NMORIM_Vmax </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <divide/>
+                  <ci> nmor_ext </ci>
+                  <ci> Vext </ci>
+                </apply>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <divide/>
+                    <ci> nmor_ext </ci>
+                    <ci> Vext </ci>
+                  </apply>
+                  <ci> NMORIM_Km </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000655" id="M3GIM" reversible="true" fast="false">
+        <listOfReactants>
+          <speciesReference species="m3g_ext" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="m3g" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> M3GIM_Vmax </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <divide/>
+                  <ci> m3g_ext </ci>
+                  <ci> Vext </ci>
+                </apply>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <divide/>
+                    <ci> m3g_ext </ci>
+                    <ci> Vext </ci>
+                  </apply>
+                  <ci> M3GIM_Km </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000655" id="M6GIM" reversible="true" fast="false">
+        <listOfReactants>
+          <speciesReference species="m6g_ext" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="m6g" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> M6GIM_Vmax </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <divide/>
+                  <ci> m6g_ext </ci>
+                  <ci> Vext </ci>
+                </apply>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <divide/>
+                    <ci> m6g_ext </ci>
+                    <ci> Vext </ci>
+                  </apply>
+                  <ci> M6GIM_Km </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000655" id="CODEX" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="cod" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="cod_urine" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> CODEX_Vmax </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <divide/>
+                  <ci> cod </ci>
+                  <ci> Vki </ci>
+                </apply>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <divide/>
+                    <ci> cod </ci>
+                    <ci> Vki </ci>
+                  </apply>
+                  <ci> CODIM_Km </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000655" id="MOREX" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="mor" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="mor_urine" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> MOREX_Vmax </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <divide/>
+                  <ci> mor </ci>
+                  <ci> Vki </ci>
+                </apply>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <divide/>
+                    <ci> mor </ci>
+                    <ci> Vki </ci>
+                  </apply>
+                  <ci> MOREX_Km </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000655" id="NCODEX" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="ncod" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="ncod_urine" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> NCODEX_Vmax </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <divide/>
+                  <ci> ncod </ci>
+                  <ci> Vki </ci>
+                </apply>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <divide/>
+                    <ci> ncod </ci>
+                    <ci> Vki </ci>
+                  </apply>
+                  <ci> NCODEX_Km </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000655" id="C6GEX" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="c6g" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="c6g_urine" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> C6GEX_Vmax </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <divide/>
+                  <ci> c6g </ci>
+                  <ci> Vki </ci>
+                </apply>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <divide/>
+                    <ci> c6g </ci>
+                    <ci> Vki </ci>
+                  </apply>
+                  <ci> C6GEX_Km </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000655" id="NMOREX" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="nmor" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="nmor_urine" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> NMOREX_Vmax </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <divide/>
+                  <ci> nmor </ci>
+                  <ci> Vki </ci>
+                </apply>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <divide/>
+                    <ci> nmor </ci>
+                    <ci> Vki </ci>
+                  </apply>
+                  <ci> NMOREX_Km </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000655" id="M3GEX" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="m3g" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="m3g_urine" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> M3GEX_Vmax </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <divide/>
+                  <ci> m3g </ci>
+                  <ci> Vki </ci>
+                </apply>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <divide/>
+                    <ci> m3g </ci>
+                    <ci> Vki </ci>
+                  </apply>
+                  <ci> M3GEX_Km </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000655" id="M6GEX" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="m6g" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="m6g_urine" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> M6GEX_Vmax </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <divide/>
+                  <ci> m6g </ci>
+                  <ci> Vki </ci>
+                </apply>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <divide/>
+                    <ci> m6g </ci>
+                    <ci> Vki </ci>
+                  </apply>
+                  <ci> M6GEX_Km </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+    <comp:listOfPorts>
+      <comp:port metaid="mmole_port" sboTerm="SBO:0000599" comp:unitRef="mmole" comp:id="mmole_port" comp:name="mmole_port"/>
+      <comp:port metaid="min_port" sboTerm="SBO:0000599" comp:unitRef="min" comp:id="min_port" comp:name="min_port"/>
+      <comp:port metaid="m_port" sboTerm="SBO:0000599" comp:unitRef="m" comp:id="m_port" comp:name="m_port"/>
+      <comp:port metaid="m2_port" sboTerm="SBO:0000599" comp:unitRef="m2" comp:id="m2_port" comp:name="m2_port"/>
+      <comp:port metaid="mM_port" sboTerm="SBO:0000599" comp:unitRef="mM" comp:id="mM_port" comp:name="mM_port"/>
+      <comp:port metaid="mmole_per_min_port" sboTerm="SBO:0000599" comp:unitRef="mmole_per_min" comp:id="mmole_per_min_port" comp:name="mmole_per_min_port"/>
+      <comp:port metaid="Vki_port" sboTerm="SBO:0000599" comp:idRef="Vki" comp:id="Vki_port" comp:name="Vki_port"/>
+      <comp:port metaid="Vurine_port" sboTerm="SBO:0000599" comp:idRef="Vurine" comp:id="Vurine_port" comp:name="Vurine_port"/>
+      <comp:port metaid="Vext_port" sboTerm="SBO:0000599" comp:idRef="Vext" comp:id="Vext_port" comp:name="Vext_port"/>
+      <comp:port metaid="cod_ext_port" sboTerm="SBO:0000599" comp:idRef="cod_ext" comp:id="cod_ext_port" comp:name="cod_ext_port"/>
+      <comp:port metaid="ncod_ext_port" sboTerm="SBO:0000599" comp:idRef="ncod_ext" comp:id="ncod_ext_port" comp:name="ncod_ext_port"/>
+      <comp:port metaid="c6g_ext_port" sboTerm="SBO:0000599" comp:idRef="c6g_ext" comp:id="c6g_ext_port" comp:name="c6g_ext_port"/>
+      <comp:port metaid="mor_ext_port" sboTerm="SBO:0000599" comp:idRef="mor_ext" comp:id="mor_ext_port" comp:name="mor_ext_port"/>
+      <comp:port metaid="nmor_ext_port" sboTerm="SBO:0000599" comp:idRef="nmor_ext" comp:id="nmor_ext_port" comp:name="nmor_ext_port"/>
+      <comp:port metaid="m3g_ext_port" sboTerm="SBO:0000599" comp:idRef="m3g_ext" comp:id="m3g_ext_port" comp:name="m3g_ext_port"/>
+      <comp:port metaid="m6g_ext_port" sboTerm="SBO:0000599" comp:idRef="m6g_ext" comp:id="m6g_ext_port" comp:name="m6g_ext_port"/>
+      <comp:port metaid="cod_urine_port" sboTerm="SBO:0000599" comp:idRef="cod_urine" comp:id="cod_urine_port" comp:name="cod_urine_port"/>
+      <comp:port metaid="mor_urine_port" sboTerm="SBO:0000599" comp:idRef="mor_urine" comp:id="mor_urine_port" comp:name="mor_urine_port"/>
+      <comp:port metaid="ncod_urine_port" sboTerm="SBO:0000599" comp:idRef="ncod_urine" comp:id="ncod_urine_port" comp:name="ncod_urine_port"/>
+      <comp:port metaid="c6g_urine_port" sboTerm="SBO:0000599" comp:idRef="c6g_urine" comp:id="c6g_urine_port" comp:name="c6g_urine_port"/>
+      <comp:port metaid="nmor_urine_port" sboTerm="SBO:0000599" comp:idRef="nmor_urine" comp:id="nmor_urine_port" comp:name="nmor_urine_port"/>
+      <comp:port metaid="m3g_urine_port" sboTerm="SBO:0000599" comp:idRef="m3g_urine" comp:id="m3g_urine_port" comp:name="m3g_urine_port"/>
+      <comp:port metaid="m6g_urine_port" sboTerm="SBO:0000599" comp:idRef="m6g_urine" comp:id="m6g_urine_port" comp:name="m6g_urine_port"/>
+    </comp:listOfPorts>
+  </model>
+</sbml>
